@@ -1,0 +1,63 @@
+#controls {
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  text-align:center;
+  border-bottom:1px solid #ccc;
+  button {
+    padding:.5rem;
+    margin:.25rem;
+  }
+}
+
+#frames {
+  text-align:center;
+  .frame {
+    display:inline-block;
+    box-sizing: border-box;
+    margin:.25rem;
+    background:#f6f6f6;
+    padding:.5rem;
+    p {
+      text-align: center;
+      padding: .5rem;
+      margin:0;
+      &.frameName {
+        width:100%;
+        margin-bottom: .5rem;
+      }
+      &.score {
+        width: 45%;
+        float:left;
+        background:#fff;
+        margin-bottom: 1rem;
+        &.next {
+          background: limegreen;
+          color:#fff;
+        }
+        &:first-child {
+          margin-right: 10%;
+        }
+      }
+      &.total {
+        clear: both;
+        background:#fff;
+        font-weight: bold;
+      }
+    }
+    &:last-child {
+      min-width:110px;
+      p.score {
+        width:29%;
+        margin-right:6.5%;
+        &:last-child {
+          margin-right:0;
+        }
+      }
+    }
+  }
+}
+
+h2 {
+  text-align:center;
+  padding-top:2rem;
+}

@@ -1,0 +1,22 @@
+<section id="controls">
+  <button
+    *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10]"
+    (click)="roll(i)"
+    [disabled]="nextRollIsLast && !lastFrame && score > 10-i">Roll {{i}}</button>
+</section>
+
+<section id="frames">
+
+  <div class="frame" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+    <p class="frameName">Frame {{i}}</p>
+    <div>
+      <p class="score" [ngClass]="{'next': framePos === i*2-1}">{{scores[i*2-2] || '-'}}</p>
+      <p class="score" [ngClass]="{'next': framePos === i*2}">{{scores[i*2-1] || '-'}}</p>
+      <p class="score" *ngIf="i === 10" [ngClass]="{'next': framePos === i*2+1}">{{scores[i*2] || '-'}}</p>
+    </div>
+    <p class="total">{{scoringService.calc(rolls, i)}}</p>
+  </div>
+
+</section>
+
+<h2>Total Score: {{scoringService.calc(rolls, currentFrame)}}</h2>
